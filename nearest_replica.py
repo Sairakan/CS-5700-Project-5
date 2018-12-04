@@ -2,7 +2,7 @@
 """
 Spyder Editor
 
-This is a temporary script file.
+Authors: Jason Teng, Seung Son
 """
 
 import requests
