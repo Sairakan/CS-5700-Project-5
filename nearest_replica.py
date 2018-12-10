@@ -5,7 +5,8 @@ Spyder Editor
 Authors: Jason Teng, Seung Son
 """
 
-import requests
+from urllib import request
+import json
 import argparse
 from math import sin, asin, cos, sqrt, atan2, radians
 
@@ -24,10 +25,10 @@ replicas = [
 replica_locs = []
 
 for r in replicas:
-    res = requests.get('http://ip-api.com/json/' + r).json()
+    res = json.loads(request.urlopen('http://ip-api.com/json/' + r).read().decode())
     replica_locs.append((res['lat'], res['lon']))
 
-res = requests.get('http://ip-api.com/json/' + ip).json()
+res = json.loads(request.urlopen('http://ip-api.com/json/' + ip).read().decode())
 iploc = (res['lat'], res['lon'])
 
 def distance(c1, c2):
